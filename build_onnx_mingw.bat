@@ -1,4 +1,4 @@
-function BuildForWindows($platform, $build_type, $generate_flag) {
+function BuildForWindows($platform, $build_type) {
     $build_dir = "build"
     mkdir $build_dir -Force -ErrorAction Stop | Out-Null
     cd $build_dir

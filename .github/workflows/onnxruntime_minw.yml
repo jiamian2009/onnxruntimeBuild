@@ -61,23 +61,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
-          
-      - name: Install Server-Media-Foundation
-        shell: powershell
-        run: |
-          Install-WindowsFeature Server-Media-Foundation
-          
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Build Onnxruntime
-        shell: cmd
         run: |
           git clone -b ${{ github.event.inputs.tag }} --recursive https://github.com/Microsoft/onnxruntime
           . ".\build_onnxruntime_mingw.ps1"
-          BuildForWindows ${{matrix.arch}} ${{matrix.build_type}}}  
+          BuildForWindows ${{matrix.arch}} ${{matrix.build_type}}
           
-    
       - name: Set up MinGW
         uses: egor-tensin/setup-mingw@v2
         with:

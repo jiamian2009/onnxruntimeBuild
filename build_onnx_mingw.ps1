@@ -10,7 +10,6 @@ function BuildForWindows($platform, $build_type) {
         $platform_flag = "-m64"
     }
 
-
     cmake -G "MinGW Makefiles" \
         -D CMAKE_C_FLAGS=$platform_flag \
         -D CMAKE_CXX_FLAGS=$platform_flag \

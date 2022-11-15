@@ -74,10 +74,10 @@ jobs:
         shell: cmd
         run: |
           git clone -b ${{ github.event.inputs.tag }} --recursive https://github.com/Microsoft/onnxruntime
-          cd onnxruntime
-          ..\build_onnx_mingw.bat ${{matrix.build_type}} ${{matrix.arch}}
-          ls
+          . ".\build_onnxruntime_mingw.ps1"
+          BuildForWindows ${{matrix.arch}} ${{matrix.build_type}}}  
           
+    
       - name: Set up MinGW
         uses: egor-tensin/setup-mingw@v2
         with:

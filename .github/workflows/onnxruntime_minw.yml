@@ -61,6 +61,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+          
+      - name: Install Server-Media-Foundation
+        shell: powershell
+        run: |
+          Install-WindowsFeature Server-Media-Foundation
+          
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Build Onnxruntime
         shell: cmd

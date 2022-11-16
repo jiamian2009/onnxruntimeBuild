@@ -36,7 +36,7 @@ function BuildForWindows($platform, $build_type) {
         -D onnxruntime_USE_MPI=ON `
         -D onnxruntime_USE_OPENMP=ON `
         -D onnxruntime_USE_PREINSTALLED_EIGEN=ON `
-        -S ../cmake
+        -S ../onnxruntime/cmake
 
     mingw32-make -j 4
     mingw32-make install

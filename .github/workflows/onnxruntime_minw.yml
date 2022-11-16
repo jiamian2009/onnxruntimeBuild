@@ -70,8 +70,7 @@ jobs:
       - name: Build Onnxruntime
         run: |
           git clone -b ${{ github.event.inputs.tag }} --recursive https://github.com/Microsoft/onnxruntime
-          cd onnxruntime
-          .. ".\build_onnxruntime_mingw.ps1"
+          . ".\build_onnxruntime_mingw.ps1"
           BuildForWindows ${{matrix.arch}} ${{matrix.build_type}}
           
       - name: Set up MinGW

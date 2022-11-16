@@ -67,16 +67,17 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: ${{matrix.arch}}
+
+
       - name: Build Onnxruntime
         run: |
           git clone -b ${{ github.event.inputs.tag }} --recursive https://github.com/Microsoft/onnxruntime
           . ".\build_onnxruntime_mingw.ps1"
           BuildForWindows ${{matrix.arch}} ${{matrix.build_type}}
-          
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: ${{matrix.arch}}
 
 
       - name: Compress Package

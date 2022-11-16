@@ -10,7 +10,8 @@ function BuildForWindows($platform, $build_type) {
         $platform_flag = "-m64"
     }
 
-    cmake -G "MinGW Makefiles" `
+    cmake `
+    -G "MinGW Makefiles" `
         -D CMAKE_C_FLAGS=$platform_flag `
         -D CMAKE_CXX_FLAGS=$platform_flag `
         -D CMAKE_BUILD_TYPE=${build_type} `
@@ -34,7 +35,8 @@ function BuildForWindows($platform, $build_type) {
         -D onnxruntime_USE_FULL_PROTOBUF=ON `
         -D onnxruntime_USE_MPI=ON `
         -D onnxruntime_USE_OPENMP=ON `
-        -D onnxruntime_USE_PREINSTALLED_EIGEN=ON ../onnxruntime
+        -D onnxruntime_USE_PREINSTALLED_EIGEN=ON `
+        -S ../cmake
 
     mingw32-make -j 4
     mingw32-make install

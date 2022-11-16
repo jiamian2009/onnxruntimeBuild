@@ -12,8 +12,8 @@ function BuildForWindows($platform, $build_type) {
 
     cmake `
     -G "MinGW Makefiles" `
-        -D CMAKE_C_FLAGS="/MP /W4 /wd4127 /wd4251 /wd4201" `
-        -D CMAKE_CXX_FLAGS="/MP /W4 /wd4127 /wd4251 /wd4201" `
+        -D CMAKE_C_FLAGS="/MP" `
+        -D CMAKE_CXX_FLAGS="/MP" `
         -D CMAKE_BUILD_TYPE=${build_type} `
         -D CMAKE_INSTALL_PREFIX=mingw64 `
         -D Protobuf_USE_STATIC_LIBS=ON `

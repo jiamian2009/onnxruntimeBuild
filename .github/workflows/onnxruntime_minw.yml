@@ -33,7 +33,7 @@ jobs:
             github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: "refs/tags/${{ github.event.inputs.tag }}",
+              ref: "refs/tags/${{ github.event.inputs.tag }}-mingw",
               sha: context.sha
             })
 
@@ -43,10 +43,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.tag }}
-          release_name: onnxruntime-${{ github.event.inputs.tag }}
+          tag_name: ${{ github.event.inputs.tag }}-mingw
+          release_name: onnxruntime-${{ github.event.inputs.tag }}-mingw
           draft: false
           prerelease: false
+          
+      - name: set name
+        run: |
+          echo "::set-output name=y::${{ steps.create_release.outputs.upload_url }}"
+          echo "${{ steps.create_release.outputs.upload_url }}"
 
   build:
     needs: init

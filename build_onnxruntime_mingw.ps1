@@ -15,9 +15,9 @@ function BuildForWindows($platform, $build_type) {
         -D CMAKE_C_FLAGS=$platform_flag `
         -D CMAKE_CXX_FLAGS=$platform_flag `
         -D CMAKE_BUILD_TYPE=${build_type} `
-        -D CMAKE_INSTALL_PREFIX=mingw64 `
+        -D CMAKE_INSTALL_PREFIX=/mingw64 `
         -D Protobuf_USE_STATIC_LIBS=ON `
-        -D eigen_SOURCE_PATH=mingw64/include/eigen3 `
+        -D eigen_SOURCE_PATH=/mingw64/include/eigen3 `
         -D onnxruntime_BUILD_BENCHMARKS=OFF `
         -D onnxruntime_BUILD_SHARED_LIB=ON `
         -D onnxruntime_BUILD_UNIT_TESTS=OFF `

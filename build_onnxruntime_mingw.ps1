@@ -39,7 +39,7 @@ function BuildForWindows($platform, $build_type) {
         -S ../onnxruntime/cmake
 
     mingw32-make -j 4
-    mingw32-make install
+    mingw32-make mingw64
     ls
     cd ..
 }

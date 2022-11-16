@@ -57,8 +57,8 @@ jobs:
     needs: init
     strategy:
       matrix:
-        build_type: ["Debug", "Release"]
-        arch: ["x86", "x64"]
+        build_type: ["Release"]
+        arch: ["x86"]
 
     runs-on: windows-latest
     steps:

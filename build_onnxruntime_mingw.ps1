@@ -27,9 +27,6 @@ function BuildForWindows($platform, $build_type) {
         -D onnxruntime_GENERATE_TEST_REPORTS=OFF `
         -D onnxruntime_PREFER_SYSTEM_LIB=ON `
         -D onnxruntime_RUN_ONNX_TESTS=OFF `
-        -D onnxruntime_USE_AVX2=ON `
-        -D onnxruntime_USE_AVX512=ON `
-        -D onnxruntime_USE_AVX=ON `
         -D onnxruntime_USE_CUDA=OFF `
         -D onnxruntime_USE_DNNL=OFF `
         -D onnxruntime_USE_FULL_PROTOBUF=ON `

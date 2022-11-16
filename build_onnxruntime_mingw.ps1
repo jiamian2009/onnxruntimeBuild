@@ -22,7 +22,7 @@ function BuildForWindows($platform, $build_type) {
         -D onnxruntime_USE_FULL_PROTOBUF=ON `
         -S ../onnxruntime/cmake
 
-    mingw32-make j 4
+    mingw32-make -j 4
     mingw32-make install
     ls
     cd ..

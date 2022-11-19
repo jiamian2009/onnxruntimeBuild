@@ -12,8 +12,8 @@ function BuildForWindows($platform, $build_type) {
 
     cmake `
     -G "MinGW Makefiles" `
-        -D CMAKE_C_FLAGS="/MP" `
-        -D CMAKE_CXX_FLAGS="/MP" `
+        -D CMAKE_C_FLAGS=$platform_flag `
+        -D CMAKE_CXX_FLAGS=$platform_flag `
         -D CMAKE_BUILD_TYPE=${build_type} `
         -D CMAKE_INSTALL_PREFIX=mingw64 `
         -D Protobuf_USE_STATIC_LIBS=ON `

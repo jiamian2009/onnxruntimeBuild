@@ -76,6 +76,9 @@ jobs:
       - name: Build Onnxruntime
         run: |
           git clone -b ${{ github.event.inputs.tag }} --recursive https://github.com/Microsoft/onnxruntime
+          cd onnxruntime
+          git submodule update --init --recursive
+          cd ..
           . ".\build_onnxruntime_mingw.ps1"
           BuildForWindows ${{matrix.arch}} ${{matrix.build_type}}
 

@@ -1,4 +1,9 @@
 function BuildForWindows($platform, $build_type) {
+
+    cd onnxruntime
+    git submodule update --init --recursive
+    cd ..
+
     $build_dir = "build"
     mkdir $build_dir -Force -ErrorAction Stop | Out-Null
     cd $build_dir
